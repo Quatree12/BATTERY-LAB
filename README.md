@@ -1,31 +1,55 @@
-# BATTERY LAB · Neon Energy Observatory
 
-A mobile-first, French-language battery-cycle tracker with neon cyber-tech visuals.
+# BATTERY LAB
 
-## What it does
-- Tracks multiple devices and their charge cycles.
-- Records timestamped battery readings and optional usage notes.
-- Calculates percentage-point drain and estimated drain/hour between readings.
-- Keeps previous cycles when a new cycle starts.
-- Includes battery-over-time charts, cycle history, CSV export and JSON backup/restore.
-- Stores data locally in the current browser using localStorage.
-- Includes clearly marked demo readings which can be removed.
+**Personal Battery Intelligence**
 
-## Important platform limits
-A regular website running in iPhone Safari cannot access iOS battery history, per-app battery usage, or the internal battery percentage of arbitrary Bluetooth headphones. BATTERY LAB therefore uses manual readings for those devices. It never labels sample data as real. Automatic sampling is limited to browser APIs that are actually supported and does not provide device battery history.
+BATTERY LAB est une webapp mobile-first pour suivre manuellement le niveau de batterie de plusieurs appareils, visualiser les relevés et consulter leur historique.
 
-## Run locally
+## Fonctionnalités
+
+- Tableau de bord avec statistiques.
+- Suivi de plusieurs appareils.
+- Enregistrement manuel du niveau de batterie.
+- Historique et graphique des relevés.
+- Marquage des recharges.
+- Export des données au format JSON.
+- Interface cyber-tech adaptée aux mobiles.
+
+## Technologies
+
+- React
+- Vite
+- Chart.js
+- Lucide React
+- GitHub Pages
+
+## Lancement local
+
+Installe Node.js, puis exécute :
+
 ```bash
 npm install
 npm run dev
 ```
 
-## Deploy to GitHub Pages
-1. Create a public GitHub repository named `battery-lab`.
-2. Upload the project files to the repository root, including `.github/workflows/deploy.yml`.
-3. In the repository, open **Settings → Pages** and select **GitHub Actions** as the build and deployment source.
-4. Push to the `main` branch. The workflow builds the site and deploys `dist` to GitHub Pages.
-5. Open **Actions** and wait for the deployment workflow to succeed. The published URL appears in the workflow summary and Settings → Pages.
+Pour construire la version de production :
 
-## Privacy
-The application keeps entries in this browser's local storage. They do not automatically sync between devices. Export a JSON backup regularly if you want to move or preserve your data.
+```bash
+npm run build
+```
+
+Le site généré se trouve dans le dossier `dist`.
+
+## Publication
+
+Le déploiement est automatisé avec GitHub Actions, via le fichier `.github/workflows/deploy.yml`.
+
+Dans les paramètres du dépôt GitHub, configure **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+
+## Confidentialité et limites
+
+Les relevés sont stockés dans le stockage local du navigateur. Ils ne sont pas automatiquement synchronisés entre appareils.
+
+La webapp ne lit pas automatiquement l'historique natif de la batterie iOS ni le niveau de batterie Bluetooth des écouteurs.
+
+Les données saisies sont des relevés manuels.
